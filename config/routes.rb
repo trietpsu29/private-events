@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   root "events#index"
   resources :events
   get "users/:id", to: "users#show"
+  post "/events/:event_id/attend", to: "attendances#attend"
 end

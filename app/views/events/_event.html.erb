@@ -4,4 +4,10 @@
   <p>Author: <%= event.creator.name %></p>
   <p>Date: <%= event.date %></p>
   <p>Location: <%= event.location %></p>
+  <p>Attendees:</p>
+  <ul>
+    <% event.attendees.each do |attendee| %>
+      <li><%= attendee.name %></li>
+    <% end %>
+  </ul>
 </li>
