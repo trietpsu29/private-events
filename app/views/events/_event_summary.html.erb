@@ -1,1 +1,4 @@
-<li><%= event.title %> — <%= event.date %></li>
+<li>
+  <%= event.title %> — <%= event.date %>
+  <%= link_to "Details", event_path(event) %>
+</li>

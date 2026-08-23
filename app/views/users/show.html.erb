@@ -1,6 +1,10 @@
-<h2><%= @user.name %>'s Events</h2>
+<h2>Upcoming Created Events</h2>
 <ul>
-  <%= render @user.created_events %>
+  <%= render "event_summary", collection: @user.created_events.future%>
+</ul>
+<h2>Past Created Events</h2>
+<ul>
+  <%= render "event_summary", collection: @user.created_events.past %>
 </ul>
 <h2><%= @user.name %>'s Attended Events</h2>
 <h2>Upcoming Attended Events</h2>
@@ -10,4 +14,12 @@
 <h2>Past Attended Events</h2>
 <ul>
   <%= render "event_summary", collection: @user.attended_events.past %>
+</ul>
+<h2>Upcoming Invited Events</h2>
+<ul>
+  <%= render "event_summary", collection: @user.invited_events.future%>
+</ul>
+<h2>Past Invited Events</h2>
+<ul>
+  <%= render "event_summary", collection: @user.invited_events.past %>
 </ul>

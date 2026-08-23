@@ -1,0 +1,6 @@
+<h1>Invite user to <%= @event.title %>
+  <%= form_with url: event_invitations_path(@event) do |form| %>
+    <p><%= form.label :invitee_name %>Invitee's name</p>
+    <p><%= form.text_field :invitee_name %></p>
+    <%= form.submit "Invite" %>
+  <% end %>

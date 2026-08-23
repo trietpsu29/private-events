@@ -10,4 +10,6 @@
       <li><%= attendee.name %></li>
     <% end %>
   </ul>
+  <%= button_to "Attend", event_attendances_path(event) %>
+  <%= link_to "Invite", new_event_invitation_path(event) %>
 </li>
