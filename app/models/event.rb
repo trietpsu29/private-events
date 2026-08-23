@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-  belongs_to :creator
+  belongs_to :creator, class_name: "User"
   has_many :attendances, foreign_key: :attended_event_id
   has_many :attendees, through: :attendances, source: :attendee
 
@@ -8,4 +8,5 @@ class Event < ApplicationRecord
 
   scope :past, -> { where("date < ?", Time.current) }
   scope :future, -> { where("date >= ?", Time.current) }
+  scope :public_events, -> { where(is_private: false) }
 end

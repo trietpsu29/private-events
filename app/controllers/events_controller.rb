@@ -1,13 +1,13 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, only: [ :new, :create, :update, :destroy ]
-  before_action :set_event, only: [ :edit, :update, :destroy ]
+  before_action :set_event, only: [ :edit, :update, :destroy, :show ]
   before_action :authorize_event, only: [ :edit, :update, :destroy ]
   def index
-    @events = Event.where(is_private: false).includes(:creator, :attendees)
+    @events = Event.public_events.includes(:creator, :attendees)
   end
 
   def new
-    @events = Event.new
+    @event = Event.new
   end
 
   def create
@@ -18,6 +18,9 @@ class EventsController < ApplicationController
       flash.now[:alert]= "Something went wrong"
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def show
   end
 
   def edit

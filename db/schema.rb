@@ -12,10 +12,12 @@
 
 ActiveRecord::Schema[8.1].define(version: 2026_08_23_053754) do
   create_table "attendances", force: :cascade do |t|
-    t.integer "attended_event_id"
-    t.integer "attendee_id"
+    t.integer "attended_event_id", null: false
+    t.integer "attendee_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["attended_event_id"], name: "index_attendances_on_attended_event_id"
+    t.index ["attendee_id"], name: "index_attendances_on_attendee_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -48,7 +50,9 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_23_053754) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "attendances", "events", column: "attended_event_id"
+  add_foreign_key "attendances", "users", column: "attendee_id"
   add_foreign_key "events", "users", column: "creator_id"
-  add_foreign_key "invitations", "invited_events"
-  add_foreign_key "invitations", "invitees"
+  add_foreign_key "invitations", "events", column: "invited_event_id"
+  add_foreign_key "invitations", "users", column: "invitee_id"
 end

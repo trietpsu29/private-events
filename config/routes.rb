@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "events#index"
-  get "users/:id", to: "users#show"
+  resources :users, only: [ :show ]
   resources :events do
    resources :attendances, only: [ :create, :destroy ]
    resources :invitations, only: [ :new, :create ]
