@@ -16,7 +16,6 @@ class EventsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-
   private
     def events_params
       params.expect(event: [ :title, :description, :date, :location ])
