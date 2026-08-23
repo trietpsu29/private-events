@@ -11,8 +11,11 @@
     <% end %>
   </ul>
   <% if user_signed_in? %>
-    <% unless event.attendances.exists?(attendee: current_user) %>
+    <% attendance = event.attendances.find_by(attendee: current_user)%>
+    <% if attendance.nil? %>
       <%= button_to "Attend", event_attendances_path(event) %>
+    <% else %>
+      <%= button_to "Leave event", event_attendance_path(event,attendance), method: :delete %>
     <% end %>
     <% if current_user==event.creator%>
       <%= link_to "Invite", new_event_invitation_path(event) %>

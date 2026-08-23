@@ -36,8 +36,7 @@ class EventsController < ApplicationController
     if @event.destroy
       redirect_to events_path
     else
-      flash[:alert]= "Something went wrong"
-      redirect_to event_path(@event)
+      redirect_to event_path(@event), alert: "Something went wrong"
     end
   end
 

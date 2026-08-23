@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   root "events#index"
   get "users/:id", to: "users#show"
   resources :events do
-   resources :attendances, only: [ :create ]
+   resources :attendances, only: [ :create, :destroy ]
    resources :invitations, only: [ :new, :create ]
  end
 end
