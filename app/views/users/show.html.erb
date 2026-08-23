@@ -3,11 +3,11 @@
   <%= render @user.created_events %>
 </ul>
 <h2><%= @user.name %>'s Attended Events</h2>
-<h2>Upcoming Events</h2>
+<h2>Upcoming Attended Events</h2>
 <ul>
   <%= render "event_summary", collection: @user.attended_events.future%>
 </ul>
-<h2>Past Events</h2>
+<h2>Past Attended Events</h2>
 <ul>
   <%= render "event_summary", collection: @user.attended_events.past %>
 </ul>
