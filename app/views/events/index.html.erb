@@ -6,9 +6,9 @@
 <% end %>
 <h2>Upcoming Events</h2>
 <ul>
-  <%= render "event_summary", collection: Event.future %>
+  <%= render partial: "event_summary", collection: Event.future, as: :event %>
 </ul>
 <h2>Past Events</h2>
 <ul>
-  <%= render "event_summary", collection: Event.past %>
+  <%= render partial: "event_summary", collection: Event.past, as: :event %>
 </ul>
