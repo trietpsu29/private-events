@@ -1,3 +1,4 @@
+<h1>Create new event</h1>
 <%= form_with model: @event do |form| %>
   <p><%= form.label :title %></p>
   <p><%= form.text_field :title %></p>
@@ -9,5 +10,5 @@
   <p><%= form.text_area :description%></p>
   <p><%= form.label :is_private %>Private?</p>
   <p><%= form.check_box :is_private%></p>
-  <%= form.submit "Create new event" %>
+  <%= form.submit "Create" %>
 <% end %>

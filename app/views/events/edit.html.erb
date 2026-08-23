@@ -1,0 +1,14 @@
+<h1>Update event</h1>
+<%= form_with model: @event do |form| %>
+  <p><%= form.label :title %></p>
+  <p><%= form.text_field :title %></p>
+  <p><%= form.label :date %></p>
+  <p><%= form.datetime_field :date %></p>
+  <p><%= form.label :location %></p>
+  <p><%= form.text_field :location %></p>
+  <p><%= form.label :description %></p>
+  <p><%= form.text_area :description%></p>
+  <p><%= form.label :is_private %>Private?</p>
+  <p><%= form.check_box :is_private%></p>
+  <%= form.submit "Update" %>
+<% end %>

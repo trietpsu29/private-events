@@ -10,6 +10,14 @@
       <li><%= attendee.name %></li>
     <% end %>
   </ul>
-  <%= button_to "Attend", event_attendances_path(event) %>
-  <%= link_to "Invite", new_event_invitation_path(event) %>
+  <% if user_signed_in? %>
+    <% unless event.attendances.exists?(attendee: current_user) %>
+      <%= button_to "Attend", event_attendances_path(event) %>
+    <% end %>
+    <% if current_user==event.creator%>
+      <%= link_to "Invite", new_event_invitation_path(event) %>
+      <%= link_to "Edit", edit_event_path(event) %>
+      <%= button_to "Delete", event_path(event), method: :delete %>
+    <% end %>
+  <% end %>
 </li>
