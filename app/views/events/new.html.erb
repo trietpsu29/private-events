@@ -8,7 +8,9 @@
   <p><%= form.text_field :location %></p>
   <p><%= form.label :description %></p>
   <p><%= form.text_area :description%></p>
-  <p><%= form.label :is_private %>Private?</p>
-  <p><%= form.check_box :is_private%></p>
+  <p>
+    <%= form.check_box :is_private%>
+    <%= form.label :is_private, "Private?" %>
+  </p>
   <%= form.submit "Create" %>
 <% end %>
